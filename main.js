@@ -41,11 +41,10 @@
         7, 9, 8, 9, 10, 9, 11, 9
     ];
 
-    arrow.orientation.rotate(-30);
-    arrow.orientation.translate(-200, 0);
+    arrow.orientation.translate(200, -70);
+    arrow.orientation.rotateCCWAboutPosition(45, { x: 200, y: -70 });
     pencil.orientation.translate(200, 0);
 
-    arrow.animation = new RotationAnimation(arrow, 45);
     pencil.animation = new RotationAnimation(pencil, 90);
 
     world.objects.set("arrow", arrow);
