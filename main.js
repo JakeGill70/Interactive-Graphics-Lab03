@@ -22,14 +22,35 @@
         0, 1, 1, 2, 2, 3, 3, 4, 4, 0, 1, 4
     ];
 
+    let axis = new Object2D();
+    axis.vertices = [
+        // Axis
+        { x: 0, y: 60 }, { x: 0, y: 0 }, { x: 60, y: 0 },
+        // Y
+        { x: -10, y: 100 }, { x: 10, y: 100 }, { x: 0, y: 90 }, { x: 0, y: 80 },
+        // X
+        { x: 80, y: 10 }, { x: 100, y: 10 }, { x: 90, y: 0 },
+        { x: 80, y: -10 }, { x: 100, y: -10 },
+    ];
+    axis.edges = [
+        // Axis
+        0, 1, 1, 2,
+        // Y
+        3, 5, 4, 5, 5, 6,
+        // X
+        7, 9, 8, 9, 10, 9, 11, 9
+    ];
+
     arrow.orientation.rotate(-30);
-    pencil.orientation.translate(100, 0);
+    arrow.orientation.translate(-200, 0);
+    pencil.orientation.translate(200, 0);
 
     arrow.animation = new RotationAnimation(arrow, 45);
     pencil.animation = new RotationAnimation(pencil, 90);
 
     world.objects.set("arrow", arrow);
     world.objects.set("pencil", pencil);
+    world.objects.set("axis", axis);
 
     world.dc.setYBasis({ x: 0, y: -1 });
     world.dc.translate(canvas.width / 2, canvas.height / 2);
