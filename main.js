@@ -42,10 +42,10 @@
     ];
 
     arrow.orientation.translate(200, -70);
-    arrow.orientation.rotateCCWAboutPosition(45, { x: 200, y: -70 });
     pencil.orientation.translate(200, 0);
 
     pencil.animation = new RotationAnimation(pencil, 90);
+    arrow.animation = new RotateAboutCenterAnimation(arrow, 30);
 
     world.objects.set("arrow", arrow);
     world.objects.set("pencil", pencil);

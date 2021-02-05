@@ -98,6 +98,10 @@ class Matrix2D {
             _leftMultiplyBy(r);
         };
 
+        this.getPosition = function _getPosition() {
+            return { x: _m[2], y: _m[5] };
+        }
+
         function multiply(m, n) {
             let r = [];
             r[0] = m[0] * n[0] + m[1] * n[3];
