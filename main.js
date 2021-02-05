@@ -11,7 +11,6 @@
     arrow.edges = [
         0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 0
     ];
-    arrow.orientation.setTranslation(100, 100);
 
     let pencil = new Object2D();
     pencil.vertices = [
@@ -21,11 +20,15 @@
     pencil.edges = [
         0, 1, 1, 2, 2, 3, 3, 4, 4, 0, 1, 4
     ];
-    pencil.orientation.setRotation(-45);
-    pencil.orientation.setTranslation(200, 100);
+
+    arrow.orientation.rotate(-30);
+    pencil.orientation.translate(100, 0);
 
     world.objects.set("arrow", arrow);
     world.objects.set("pencil", pencil);
+
+    world.dc.setYBasis({ x: 0, y: -1 });
+    world.dc.translate(canvas.width / 2, canvas.height / 2);
 
     world.render();
 
