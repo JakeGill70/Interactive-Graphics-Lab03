@@ -2,6 +2,7 @@
 (function _main() {
     let canvas = document.getElementById("drawingCanvas");
     let world = new World2D(canvas);
+    let animationLoop = new AnimationLoop(world);
 
     let arrow = new Object2D();
     arrow.vertices = [
@@ -24,12 +25,15 @@
     arrow.orientation.rotate(-30);
     pencil.orientation.translate(100, 0);
 
+    arrow.animation = new RotationAnimation(arrow, 45);
+    pencil.animation = new RotationAnimation(pencil, 90);
+
     world.objects.set("arrow", arrow);
     world.objects.set("pencil", pencil);
 
     world.dc.setYBasis({ x: 0, y: -1 });
     world.dc.translate(canvas.width / 2, canvas.height / 2);
 
-    world.render();
+    animationLoop.run();
 
 })();

@@ -4,6 +4,7 @@ class Object2D {
         this.vertices = [];
         this.edges = [];
         this.orientation = new Matrix2D();
+        this.animation = null;
 
         this.render = function _render(context, parentOrientation) {
             context.beginPath();
@@ -22,5 +23,11 @@ class Object2D {
             }
             context.stroke();
         };
+
+        this.update = function _update(elapsedTimeMS) {
+            if (this.animation) {
+                this.animation.update(elapsedTimeMS);
+            }
+        }
     }
 }

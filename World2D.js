@@ -11,9 +11,15 @@ class World2D {
             // "CSCI41575157-WorldTransforms-Animation" on D2L.
             // https://elearn.etsu.edu/d2l/le/content/8468953/viewContent/72014379/View
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.objects.forEach(element => {
-                element.render(this.context, this.dc);
+            this.objects.forEach(rObject => {
+                rObject.render(this.context, this.dc);
             });
+        }
+
+        this.update = function _update(elapsedTimeMS) {
+            this.objects.forEach(uObject => {
+                uObject.update(elapsedTimeMS);
+            })
         }
     }
 }
